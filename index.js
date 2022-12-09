@@ -1,13 +1,27 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+
+    if (seenNumbers.has(complement)) return true;
+    seenNumbers.add(number);
+  }
+  return false;
+
 }
 
 /* 
   Write the Big O time complexity of your function here
+  run time 0(n*2)
+  space time 0(n)
 */
 
 /* 
   Add your pseudocode here
+  hasTargetSum([3, 8, 12, 4, 6, 8], 11);
+  we are looking for a number in the array that will add upto 11
+  8+3=11 so it will return true 
 */
 
 /*
